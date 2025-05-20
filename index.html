@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing URL Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Phishing URL Detection</h1>
+        <form method="POST" action="/predict">
+            <input type="text" name="url" placeholder="Enter URL to check" required>
+            <button type="submit">Check URL</button>
+        </form>
+        {% if result %}
+            <div class="result">
+                <p>{{ result }}</p>
+                <p>Checked URL: <strong>{{ url }}</strong></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
